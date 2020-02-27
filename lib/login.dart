@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
+                          const EdgeInsets.only(left: 100, right: 100, top: 20),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -94,7 +94,7 @@ class LoginPage extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
+                          const EdgeInsets.only(left: 100, right: 100, top: 20),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(

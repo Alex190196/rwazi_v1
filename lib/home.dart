@@ -46,7 +46,7 @@ class Home extends StatelessWidget {
               Card(
 //                padding: EdgeInsets.all(10),
                 color: Colors.white,
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 75),
                 child: ListTile(
                   leading: Icon(
                     Icons.phone,
@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
               Card(
 //                padding: EdgeInsets.all(10),
                 color: Colors.white,
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 75),
                 child: ListTile(
                   leading: Icon(
                     Icons.email,
@@ -93,7 +93,7 @@ class Home extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+                      padding: EdgeInsets.only(left: 75, right: 75, top: 20),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(

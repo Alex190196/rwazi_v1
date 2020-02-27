@@ -1,92 +1,196 @@
 import 'package:flutter/material.dart';
 import 'location.dart';
+import 'package:dropdown_formfield/dropdown_formfield.dart';
 
-class RegistrationRet extends StatelessWidget {
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: RegistrationRet(),
+    );
+  }
+}
+
+class RegistrationRet extends StatefulWidget {
+  @override
+  _RegistrationRetState createState() => _RegistrationRetState();
+
+//  _QRViewExampleState createStates() => _QRViewExampleState();
+}
+
+class _RegistrationRetState extends State<RegistrationRet> {
+  String _myActivity;
+  String _myActivityResult;
+  final formKey = new GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _myActivity = '';
+    _myActivityResult = '';
+  }
+
+  _saveForm() {
+    var form = formKey.currentState;
+    if (form.validate()) {
+      form.save();
+      setState(() {
+        _myActivityResult = _myActivity;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white),
+        title: Center(child: Text('Retailer Registration')),
       ),
-      backgroundColor: Colors.blueAccent,
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
+      backgroundColor: Colors.white,
+      body: Form(
+        key: formKey,
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              CircleAvatar(
-                radius: 75,
-                backgroundImage: AssetImage('images/rwazi.jpg'),
-              ),
-//              Text(
-//                'rwazi ltd',
-//                style: TextStyle(
-//                  fontFamily: 'Pacifico',
-//                  fontSize: 40,
-//                  color: Colors.white,
-//                  fontWeight: FontWeight.bold,
-//                ),
-//              ),
-              Text(
-                'Registration Form',
-                style: TextStyle(
-                  fontFamily: 'SourceSansPro',
-                  fontSize: 30,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+              Container(
+                padding: EdgeInsets.all(20),
+                child: DropDownFormField(
+                  titleText: 'Mapping Area',
+                  hintText: 'Please choose one',
+                  value: _myActivity,
+                  onSaved: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  dataSource: [
+                    {
+                      "display": "Flacq",
+                      "value": "Flacq",
+                    },
+                    {
+                      "display": "Grand Port",
+                      "value": "Grand Port",
+                    },
+                    {
+                      "display": "Moka",
+                      "value": "Moka",
+                    },
+                    {
+                      "display": "Pamplemouse",
+                      "value": "Pamplemouse",
+                    },
+                    {
+                      "display": "Plaine Wilhems",
+                      "value": "Plaine Wilhems",
+                    },
+                    {
+                      "display": "Port Louis",
+                      "value": "Port Louis",
+                    },
+                    {
+                      "display": "Riviere du Rempart",
+                      "value": "Riviere du Rempart",
+                    },
+                    {
+                      "display": "Riviere Noire",
+                      "value": "Riviere Noire",
+                    },
+                    {
+                      "display": "Savanne",
+                      "value": "Savanne",
+                    },
+                  ],
+                  textField: 'display',
+                  valueField: 'value',
                 ),
               ),
-              SizedBox(
-                height: 20,
-                width: 250,
-                child: Divider(
-                  color: Colors.black,
+              Container(
+                padding: EdgeInsets.all(16),
+                child: DropDownFormField(
+                  titleText: 'Outlet Name',
+                  hintText: 'Please choose one',
+                  value: _myActivity,
+                  onSaved: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  dataSource: [
+                    {
+                      "display": "Coca Cola",
+                      "value": "Coca Cola",
+                    },
+                    {
+                      "display": "Pepsi",
+                      "value": "Pepsi",
+                    },
+                    {
+                      "display": "Permoglaze",
+                      "value": "Permoglaze",
+                    },
+                    {
+                      "display": "Mauvilac",
+                      "value": "Mauvilac",
+                    },
+                  ],
+                  textField: 'display',
+                  valueField: 'value',
                 ),
               ),
-
-              new DropdownButton<String>(
-                hint: Text('District'),
-                items: <String>[
-                  'Flaq',
-                  'Grand Port',
-                  'Moka',
-                  'Pamplemouse',
-                  'Plaine Wilhems',
-                  'Port Louis',
-                  'Riviere du Rempart',
-                  'Riviere Noire',
-                  'Savanne'
-                ].map((String value) {
-                  return new DropdownMenuItem<String>(
-                    value: value,
-                    child: new Text(value),
-                  );
-                }).toList(),
-                onChanged: (_) {},
+              Container(
+                padding: EdgeInsets.all(16),
+                child: DropDownFormField(
+                  titleText: 'Outlet Type',
+                  hintText: 'Please choose one',
+                  value: _myActivity,
+                  onSaved: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _myActivity = value;
+                    });
+                  },
+                  dataSource: [
+                    {
+                      "display": "Soft Drinks",
+                      "value": "Soft Drinks",
+                    },
+                    {
+                      "display": "Paint",
+                      "value": "Paint",
+                    },
+                  ],
+                  textField: 'display',
+                  valueField: 'value',
+                ),
               ),
-              DropdownButton<String>(
-                hint: Text('Outlet Name'),
-                items: <String>['Coca-Cola', 'Pepsi', 'Mauvilac', 'Permoglaz']
-                    .map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (_) {},
+              Container(
+                padding: EdgeInsets.all(8),
+                child: RaisedButton(
+                  child: Text('Save'),
+                  onPressed: _saveForm,
+                ),
               ),
-              DropdownButton<String>(
-                hint: Text('Outlet Type'),
-                items: <String>['Soft Drinks', 'Paint'].map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (_) {},
+              Container(
+                padding: EdgeInsets.all(16),
+                child: Text(_myActivityResult),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +198,7 @@ class RegistrationRet extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
+                          const EdgeInsets.only(left: 50, right: 50, top: 50),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -130,3 +234,47 @@ class RegistrationRet extends StatelessWidget {
     );
   }
 }
+//
+//class _QRViewExampleState extends State<RegistrationRet> {
+//  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+//  var qrText = "";
+//  QRViewController controller;
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Scaffold(
+//      body: Column(
+//        children: <Widget>[
+//          Expanded(
+//            flex: 5,
+//            child: QRView(
+//              key: qrKey,
+//              onQRViewCreated: _onQRViewCreated,
+//            ),
+//          ),
+//          Expanded(
+//            flex: 1,
+//            child: Center(
+//              child: Text('Scan result: $qrText'),
+//            ),
+//          )
+//        ],
+//      ),
+//    );
+//  }
+//
+//  void _onQRViewCreated(QRViewController controller) {
+//    this.controller = controller;
+//    controller.scannedDataStream.listen((scanData) {
+//      setState(() {
+//        qrText = scanData;
+//      });
+//    });
+//  }
+//
+//  @override
+//  void dispose() {
+//    controller?.dispose();
+//    super.dispose();
+//  }
+//}

@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Google Maps Demo',
-//      home: Location(),
+      home: Location(),
     );
   }
 }
@@ -36,7 +36,24 @@ class LocationState extends State<Location> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
+      appBar: AppBar(
+        title: Center(child: const Text('Mapping Location')),
+      ),
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: AboutListTile(
+              icon: Icon(Icons.info),
+              applicationIcon: FlutterLogo(),
+              applicationName: 'Option',
+              applicationVersion: 'August 2019',
+              applicationLegalese: '© 2019 The Chromium Authors',
+//              aboutBoxChildren: aboutBoxChildren,
+            ),
+          ),
+        ),
+      ),
       body: GoogleMap(
         mapType: MapType.hybrid,
         initialCameraPosition: _kGooglePlex,
